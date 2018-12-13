@@ -10,6 +10,7 @@ namespace ESX.Data.Mappings
             Table("Marca");
             Id(x => x.Id).GeneratedBy.Identity();
             Map(x => x.Nome).Not.Nullable();
+            HasMany<Patrimonio>(x => x.Patrimonios).KeyColumn("IdMarca");
         }
     }
 }

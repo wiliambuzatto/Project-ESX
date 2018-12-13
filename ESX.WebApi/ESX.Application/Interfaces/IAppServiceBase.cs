@@ -16,7 +16,6 @@ namespace ESX.Application.Interfaces
         IEnumerable<T> ObterPaginadoOnde(Expression<Func<T, bool>> expressao, int paginaAtual, int qtdPorPagina, out int qtdTotalRegistros);
         void Adicionar(T entidade);
         void Remover(T entidade);
-        void Remover(int id);
         void Alterar(T entidade);
     }
 }

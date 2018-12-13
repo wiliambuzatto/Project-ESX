@@ -92,11 +92,5 @@ namespace ESX.Application.AppService
         {
             _repositoryBase.Remover(entidade);
         }
-
-        public virtual void Remover(int id)
-        {
-            var entidade = this.Obter(id);
-            _repositoryBase.Remover(entidade);
-        }
     }
 }

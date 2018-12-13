@@ -6,5 +6,6 @@ namespace ESX.Application.Interfaces
     {
         void Cadastrar(string Nome, string Descricao, int IdMarca);
         void Alterar(int id, string Nome, string Descricao, int IdMarca);
+        void Excluir(int id);
     }
 }

@@ -10,5 +10,6 @@ namespace ESX.Domain.Entities
     {
         public virtual int Id { get; protected set; }
         public virtual string Nome { get; set; }
+        public virtual IEnumerable<Patrimonio> Patrimonios { get; protected set; }
     }
 }

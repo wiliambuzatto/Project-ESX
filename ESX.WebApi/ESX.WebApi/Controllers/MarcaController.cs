@@ -120,7 +120,7 @@ namespace ESX.WebApi.Controllers
         {
             try
             {
-                _appServiceMarca.Remover(id);
+                _appServiceMarca.Excluir(id);
 
                 return Ok("Excluido com sucesso");
             }

@@ -17,6 +17,16 @@ namespace ESX.Application.AppService
             _appServiceMarca = appServiceMarca;
         }
 
+        public override Patrimonio Obter(int id)
+        {
+            var obj = base.Obter(id);
+
+            if (obj == null)
+                throw new PatrimonioNaoEncontradoException();
+
+            return obj;
+        }
+
         public void Alterar(int id, string Nome, string Descricao, int IdMarca)
         {
             var obj = this.Obter(id);
@@ -54,6 +64,16 @@ namespace ESX.Application.AppService
             obj.CriarNumeroTombo();
 
             this.Adicionar(obj);
+        }
+
+        public void Excluir(int id)
+        {
+            var obj = this.Obter(id);
+
+            if (obj == null)
+                throw new PatrimonioNaoEncontradoException();
+
+            this.Remover(obj);
         }
 
         private bool ValidarPatrimonioExistente(string Nome, int IdMarca, int? Id = null)
