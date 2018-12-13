@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "68c96262-4d9b-457d-9e59-12c939477369",
+		"name": "ESX",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Patrimonio",
+			"item": [
+				{
+					"name": "ObterTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:50280/api/patrimonio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50280",
+							"path": [
+								"api",
+								"patrimonio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:50280/api/patrimonio/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50280",
+							"path": [
+								"api",
+								"patrimonio",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\": \"Patrimonio 1\",\r\n    \"Descricao\": \"Descricao testando\",\r\n    \"IdMarca\": \"1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:50280/api/patrimonio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50280",
+							"path": [
+								"api",
+								"patrimonio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\t\"Id\": \"1\",\n        \"Nome\": \"Patrimonio 1 Alterado\",\n        \"Descricao\": \"Descrica 1 Alterada\",\n        \"IdMarca\": \"1\"\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:50280/api/patrimonio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50280",
+							"path": [
+								"api",
+								"patrimonio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:50280/api/patrimonio/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50280",
+							"path": [
+								"api",
+								"patrimonio",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Marca",
+			"item": [
+				{
+					"name": "ObterTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:50280/api/marca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50280",
+							"path": [
+								"api",
+								"marca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObterTodos Marca Patrimonios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:50280/api/marca/1/patrimonios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50280",
+							"path": [
+								"api",
+								"marca",
+								"1",
+								"patrimonios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:50280/api/marca/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50280",
+							"path": [
+								"api",
+								"marca",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Nome\": \"Marca 1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:50280/api/marca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50280",
+							"path": [
+								"api",
+								"marca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Id\": \"1\",\n\t\"Nome\": \"Nova Marca Alterada\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:50280/api/marca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50280",
+							"path": [
+								"api",
+								"marca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:50280/api/marca/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50280",
+							"path": [
+								"api",
+								"marca",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
