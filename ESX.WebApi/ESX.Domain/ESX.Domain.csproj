@@ -47,7 +47,7 @@
     <Compile Include="Exceptions\ErroExcluirMarcaContemPatrimonios.cs" />
     <Compile Include="Exceptions\MarcaNaoEncontradaException.cs" />
     <Compile Include="Exceptions\PatrimonioJaCadastradoException.cs" />
-    <Compile Include="Exceptions\CategoriaJaCadastradaException.cs" />
+    <Compile Include="Exceptions\MarcaJaCadastradaException.cs" />
     <Compile Include="Exceptions\PatrimonioNaoEncontradoException.cs" />
     <Compile Include="Interfaces\Repository\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Repository\IRepositoryMarca.cs" />

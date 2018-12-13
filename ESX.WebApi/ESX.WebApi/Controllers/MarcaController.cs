@@ -60,6 +60,28 @@ namespace ESX.WebApi.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/marca/{id}/patrimonios")]
+        public IHttpActionResult GetPatrimonios(int id)
+        {
+            try
+            {
+                var obj = _appServiceMarca.Obter(id);
+
+                var objMap = Mapper.Map<MarcaPatrimoniosObterModel>(obj);
+
+                return Ok(objMap);
+            }
+            catch (AplicacaoExceptionBase appEx)
+            {
+                return BadRequest(appEx.MensagemErro);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost]
         [Route("api/marca")]
         public IHttpActionResult Post([FromBody] MarcaCadastrarModel obj)

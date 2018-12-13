@@ -10,6 +10,8 @@ namespace ESX.WebApi.Mappers
         {
             CreateMap<Patrimonio, PatrimonioObterModel>()
                 .ForMember(dest => dest.Marca, opt => opt.MapFrom(x => Mapper.Map<MarcaObterModel>(x.Marca)));
+
+            CreateMap<Patrimonio, MarcaPatrimoniosModel>();
         }
     }
 }

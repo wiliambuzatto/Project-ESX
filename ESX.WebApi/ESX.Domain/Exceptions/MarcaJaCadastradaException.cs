@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ESX.Domain.Exceptions
 {
-    public class CategoriaJaCadastradaException : AplicacaoExceptionBase
+    public class MarcaJaCadastradaException : AplicacaoExceptionBase
     {
         public override string MensagemErro
         {
-            get { return "Categoria já cadastrada"; }
+            get { return "Marca já cadastrada"; }
         }
     }
 }

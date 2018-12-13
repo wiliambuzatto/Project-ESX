@@ -26,13 +26,13 @@ namespace ESX.Application.AppService
 
         public void Alterar(int id, string Nome)
         {
-            if (ValidarCategoriaExistente(Nome, id))
-                throw new CategoriaJaCadastradaException();
-
             var obj = this.Obter(id);
 
             if (obj == null)
                 throw new MarcaNaoEncontradaException();
+
+            if (ValidarMarcaExistente(Nome, id))
+                throw new MarcaJaCadastradaException();
 
             obj.Nome = Nome;
 
@@ -41,8 +41,8 @@ namespace ESX.Application.AppService
 
         public void Cadastrar(string Nome)
         {
-            if (ValidarCategoriaExistente(Nome))
-                throw new CategoriaJaCadastradaException();
+            if (ValidarMarcaExistente(Nome))
+                throw new MarcaJaCadastradaException();
 
             var obj = new Marca();
             obj.Nome = Nome;
@@ -57,7 +57,7 @@ namespace ESX.Application.AppService
             if (obj == null)
                 throw new MarcaNaoEncontradaException();
 
-            if(ValidarReferenciaMarca(id))
+            if (ValidarReferenciaMarca(id))
                 throw new ErroExcluirMarcaContemPatrimonios();
 
             this.Remover(obj);
@@ -68,7 +68,7 @@ namespace ESX.Application.AppService
             return this.Any(x => x.Patrimonios.Any());
         }
 
-        private bool ValidarCategoriaExistente(string Nome, int? Id = null)
+        private bool ValidarMarcaExistente(string Nome, int? Id = null)
         {
             return this.Any(x => x.Nome == Nome && (!Id.HasValue || x.Id != Id));
         }

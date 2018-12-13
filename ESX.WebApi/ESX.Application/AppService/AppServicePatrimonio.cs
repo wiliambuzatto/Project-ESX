@@ -47,6 +47,7 @@ namespace ESX.Application.AppService
 
             this.Alterar(obj);
         }
+
         public void Cadastrar(string Nome, string Descricao, int IdMarca)
         {
             var obj = new Patrimonio();

@@ -139,6 +139,8 @@
     <Compile Include="Mappers\MarcaMappingProfile.cs" />
     <Compile Include="Models\Marca\MarcaCadastrarModel.cs" />
     <Compile Include="Models\Marca\MarcaEditarModel.cs" />
+    <Compile Include="Models\Marca\MarcaPatrimoniosModel.cs" />
+    <Compile Include="Models\Marca\MarcaPatrimoniosObterModel.cs" />
     <Compile Include="Models\Marca\MarcaObterModel.cs" />
     <Compile Include="Models\Patrimonio\PatrimonioEditarModel.cs" />
     <Compile Include="Models\Patrimonio\PatrimonioObterModel.cs" />
