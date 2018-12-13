@@ -137,12 +137,12 @@
     <Compile Include="Mappers\AutoMapperConfig.cs" />
     <Compile Include="Mappers\PatrimonioMappingProfile.cs" />
     <Compile Include="Mappers\MarcaMappingProfile.cs" />
-    <Compile Include="Models\MarcaCadastrarModel.cs" />
-    <Compile Include="Models\MarcaObterModel.cs" />
-    <Compile Include="Models\MarcaEditarModel.cs" />
-    <Compile Include="Models\PatrimonioObterModel.cs" />
-    <Compile Include="Models\PatrimonioEditarModel.cs" />
-    <Compile Include="Models\PatrimonioCadastrarModel.cs" />
+    <Compile Include="Models\Marca\MarcaCadastrarModel.cs" />
+    <Compile Include="Models\Marca\MarcaEditarModel.cs" />
+    <Compile Include="Models\Marca\MarcaObterModel.cs" />
+    <Compile Include="Models\Patrimonio\PatrimonioEditarModel.cs" />
+    <Compile Include="Models\Patrimonio\PatrimonioObterModel.cs" />
+    <Compile Include="Models\Patrimonio\PatrimonioCadastrarModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

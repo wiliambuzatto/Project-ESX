@@ -1,5 +1,7 @@
-﻿using ESX.Application.Interfaces;
+﻿using System;
+using ESX.Application.Interfaces;
 using ESX.Domain.Entities;
+using ESX.Domain.Exceptions;
 using ESX.Domain.Interfaces.Repository;
 using ESX.Domain.Interfaces.UnitWork;
 
@@ -19,24 +21,44 @@ namespace ESX.Application.AppService
         {
             var obj = this.Obter(id);
             var objMarca = _appServiceMarca.Obter(IdMarca);
+
+            if (obj == null)
+                throw new PatrimonioNaoEncontradoException();
+
+            if (objMarca == null)
+                throw new MarcaNaoEncontradaException();
+
+            if (ValidarPatrimonioExistente(Nome, IdMarca, id))
+                throw new PatrimonioJaCadastradoException();
+
             obj.Nome = Nome;
             obj.Descricao = Descricao;
             obj.Marca = objMarca;
 
-            this.Adicionar(obj);
+            this.Alterar(obj);
         }
-
         public void Cadastrar(string Nome, string Descricao, int IdMarca)
         {
             var obj = new Patrimonio();
             var objMarca = _appServiceMarca.Obter(IdMarca);
+
+            if (objMarca == null)
+                throw new MarcaNaoEncontradaException();
+
+            if (ValidarPatrimonioExistente(Nome, IdMarca))
+                throw new PatrimonioJaCadastradoException();
+
             obj.Nome = Nome;
             obj.Descricao = Descricao;
             obj.Marca = objMarca;
             obj.CriarNumeroTombo();
 
             this.Adicionar(obj);
+        }
 
+        private bool ValidarPatrimonioExistente(string Nome, int IdMarca, int? Id = null)
+        {
+            return this.Any(x => x.Nome == Nome && x.Marca.Id == IdMarca && (!Id.HasValue || x.Id != Id));
         }
     }
 }

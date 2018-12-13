@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
 using ESX.Application.Interfaces;
+using ESX.Domain.Exceptions;
 using ESX.WebApi.Models;
+using System;
+using System.Collections.Generic;
 using System.Web.Http;
 
 namespace ESX.WebApi.Controllers
@@ -17,37 +20,70 @@ namespace ESX.WebApi.Controllers
         [Route("api/patrimonio")]
         public IHttpActionResult Get()
         {
-            var lst = _appServicePatrimonio.ObterTodos();
+            try
+            {
+                var lst = _appServicePatrimonio.ObterTodos();
 
-            var lstMap = Mapper.Map<PatrimonioObterModel>(lst);
+                var lstMap = Mapper.Map<List<PatrimonioObterModel>>(lst);
 
-            return Ok(lstMap);
+                return Ok(lstMap);
+            }
+            catch (AplicacaoExceptionBase appEx)
+            {
+                return BadRequest(appEx.MensagemErro);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet]
         [Route("api/patrimonio/{id}")]
         public IHttpActionResult Get(int id)
         {
-            var obj = _appServicePatrimonio.Obter(id);
+            try
+            {
+                var obj = _appServicePatrimonio.Obter(id);
 
-            var objMap = Mapper.Map<PatrimonioObterModel>(obj);
+                var objMap = Mapper.Map<PatrimonioObterModel>(obj);
 
-            return Ok(objMap);
+                return Ok(objMap);
+            }
+            catch (AplicacaoExceptionBase appEx)
+            {
+                return BadRequest(appEx.MensagemErro);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
         [Route("api/patrimonio")]
         public IHttpActionResult Post([FromBody] PatrimonioCadastrarModel obj)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _appServicePatrimonio.Cadastrar(obj.Nome, obj.Descricao, obj.IdMarca);
+                if (ModelState.IsValid)
+                {
+                    _appServicePatrimonio.Cadastrar(obj.Nome, obj.Descricao, obj.IdMarca);
 
-                return Ok("Incluido com sucesso");
+                    return Ok("Incluido com sucesso");
+                }
+                else
+                {
+                    return BadRequest(ModelState);
+                }
             }
-            else
+            catch(AplicacaoExceptionBase appEx)
             {
-                return BadRequest(ModelState);
+                return BadRequest(appEx.MensagemErro);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 
@@ -55,15 +91,26 @@ namespace ESX.WebApi.Controllers
         [Route("api/patrimonio")]
         public IHttpActionResult Put([FromBody] PatrimonioEditarModel obj)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _appServicePatrimonio.Alterar(obj.Id, obj.Nome, obj.Descricao, obj.IdMarca);
+                if (ModelState.IsValid)
+                {
+                    _appServicePatrimonio.Alterar(obj.Id, obj.Nome, obj.Descricao, obj.IdMarca);
 
-                return Ok("Alterado com sucesso");
+                    return Ok("Alterado com sucesso");
+                }
+                else
+                {
+                    return BadRequest(ModelState);
+                }
             }
-            else
+            catch (AplicacaoExceptionBase appEx)
             {
-                return BadRequest(ModelState);
+                return BadRequest(appEx.MensagemErro);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 
@@ -71,9 +118,20 @@ namespace ESX.WebApi.Controllers
         [Route("api/patrimonio/{id}")]
         public IHttpActionResult Delete(int id)
         {
-            _appServicePatrimonio.Remover(id);
+            try
+            {
+                _appServicePatrimonio.Remover(id);
 
-            return Ok("Excluido com sucesso");
+                return Ok("Excluido com sucesso");
+            }
+            catch (AplicacaoExceptionBase appEx)
+            {
+                return BadRequest(appEx.MensagemErro);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
