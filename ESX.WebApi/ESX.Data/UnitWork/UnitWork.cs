@@ -23,11 +23,6 @@ namespace ESX.Data.UnitWork
             // Initialise singleton instance of ISessionFactory, static constructors are only executed once during the 
             // application lifetime - the first time the UnitOfWork class is used
             _sessionFactory = GetFluentConfig().BuildSessionFactory();
-
-#if DEBUG
-            GenerateScripSchema();
-            GenerateSchema();
-#endif
         }
 
         private static void GenerateScripSchema()
