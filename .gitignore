@@ -1,0 +1,11 @@
+[Bb]in
+[Dd]ebug*/
+[Rr]elease*/
+*.[Oo]bj
+obj/
+.vs/
+*.csproj.user
+*.suo
+App_Data/*
+[Bb]uild/
+*.pubxml.user

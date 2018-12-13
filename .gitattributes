@@ -1,0 +1,29 @@
+*.html text eol=crlf
+*.cshtml text eol=crlf
+*.sql text eol=crlf
+*.js text eol=crlf
+*.css text eol=crlf
+
+*.doc  diff=astextplain
+*.DOC	diff=astextplain
+*.docx	diff=astextplain
+*.DOCX	diff=astextplain
+*.dot	diff=astextplain
+*.DOT	diff=astextplain
+*.pdf	diff=astextplain
+*.PDF	diff=astextplain
+*.rtf	diff=astextplain
+*.RTF	diff=astextplain
+
+*.jpg binary
+*.png binary
+*.gif binary
+
+*.cs -text diff=csharp
+*.html -text
+*.htm -text
+*.css -text
+*.sass -text
+*.less -text
+*.js -text
+*.sql -text
